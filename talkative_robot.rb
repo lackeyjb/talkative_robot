@@ -1,19 +1,16 @@
 def get_users_name
 	puts "What's your name?"
-	user_name = gets.chomp
-	return user_name
+	return gets.chomp
 end
 
 def get_users_gender
 	puts "Gender [M or F]:"
-	user_gender = gets.chomp
-	return user_gender
+	return gets.chomp
 end
 
 def get_users_age
 	puts "How old are you?"
-	user_age = gets.chomp.to_i
-	return user_age
+	return gets.chomp.to_i
 end
 
 def users_age_case(user_age)
@@ -27,24 +24,16 @@ def users_age_case(user_age)
 	end
 end
 
-def boy_or_girl?(user_gender)
-	user_gender == "M" ? "young boy" : "young girl"
+def male_or_female?(user_gender)
+	user_gender == "M" 
 end
 
 def is_user_young?(user_age)
 	user_age < 12
 end
 
-def grandpa_or_grandma?(user_gender)
-	user_gender == "M" ? "great-great grandpa" : "great-great grandma"
-end
-
 def is_user_old?(user_age)
 	user_age > 100
-end
-
-def users_name_to_caps(user_name)
-	user_name.upcase
 end
 
 users_name = get_users_name
@@ -53,35 +42,23 @@ users_gender = get_users_gender
 
 users_age = get_users_age
 
-young_person = boy_or_girl?(users_gender)
+young_person = male_or_female?(users_gender) && is_user_young?(users_age) ? "young boy" : "young girl"
 
-old_person = grandpa_or_grandma?(users_gender)
+old_person =  male_or_female?(users_gender) && is_user_old?(users_age) ? "great-great grandpa" : "great-great grandma"
 
 puts "Hi #{users_name}, who is #{users_age} year(s) old!"
 puts "Do you mind if I call you #{users_name.chars.first}?"
 
 users_age_case(users_age)
 
-puts "You are a #{young_person}." if is_user_young?(users_age)
-puts "Are you a #{old_person}?" if is_user_old?(users_age)
+puts "You are a #{young_person}." unless is_user_old?(users_age)
+puts "Are you a #{old_person}?" unless is_user_young?(users_age)
 
-users_name_caps = users_name_to_caps(users_name)
-puts "Hey #{users_name_caps}, where are you going!?"
+puts "Hey #{users_name.upcase}, where are you going!?"
 puts 'Hey "Dude", what\'s up?'
 
 
-# Add on to previous lab with:
-# Group previously defined if/else and case statements into methods
-# Have at least one method that does not need a param
-# Have at least one method that requires a param
 
-# Bonus
-# Create a boolean method (such as hungry?) -- Google for syntax/style
-# Make all your methods into 3 lines or less
-
-# Bonus
-# In ~/ruby_scripts, create a file called strings.rb
-# Go through the entire Ruby doc on strings and practice each method
 
 
 
