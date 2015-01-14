@@ -1,46 +1,50 @@
 def get_users_name
 	puts "What's your name?"
-	users_name = gets.chomp
-	return users_name
+	user_name = gets.chomp
+	return user_name
 end
 
 def get_users_gender
 	puts "Gender [M or F]:"
-	users_gender = gets.chomp
-	return users_gender
+	user_gender = gets.chomp
+	return user_gender
 end
 
 def get_users_age
 	puts "How old are you?"
-	users_age = gets.chomp.to_i
-	return users_age
+	user_age = gets.chomp.to_i
+	return user_age
 end
 
-def users_age_calculation(users_age)
+def users_age_case(user_age)
 	case user_age
 	when 0..74
-		puts "You will be 75 years old in #{75 - users_age} year(s)."
+		puts "You will be 75 years old in #{75 - user_age} year(s)."
 	when 75
-		puts "You are #{users_age}!"
+		puts "You are #{user_age}!"
 	else
-		puts "You turned 75 years old #{users_age - 75} years ago."
+		puts "You turned 75 years old #{user_age - 75} years ago."
 	end
 end
 
-def boy_or_girl?(users_gender)
-	users_gender == "M" ? "young boy" : "young girl"
+def boy_or_girl?(user_gender)
+	user_gender == "M" ? "young boy" : "young girl"
 end
 
-def is_user_young?(users_age)
-	users_age < 12
+def is_user_young?(user_age)
+	user_age < 12
 end
 
-def grandpa_or_grandma?(users_gender)
-	users_gender == "M" ? "great-great grandpa" : "great-great grandma"
+def grandpa_or_grandma?(user_gender)
+	user_gender == "M" ? "great-great grandpa" : "great-great grandma"
 end
 
-def is_user_old?(users_age)
-	users_age > 100
+def is_user_old?(user_age)
+	user_age > 100
+end
+
+def users_name_to_caps(user_name)
+	user_name.upcase
 end
 
 users_name = get_users_name
@@ -56,13 +60,13 @@ old_person = grandpa_or_grandma?(users_gender)
 puts "Hi #{users_name}, who is #{users_age} year(s) old!"
 puts "Do you mind if I call you #{users_name.chars.first}?"
 
-users_age_calculation(users_age)
+users_age_case(users_age)
 
 puts "You are a #{young_person}." if is_user_young?(users_age)
 puts "Are you a #{old_person}?" if is_user_old?(users_age)
 
-users_name.upcase!
-puts "Hey #{users_name}, where are you going!?"
+users_name_caps = users_name_to_caps(users_name)
+puts "Hey #{users_name_caps}, where are you going!?"
 puts 'Hey "Dude", what\'s up?'
 
 
