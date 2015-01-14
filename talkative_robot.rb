@@ -47,16 +47,6 @@ def pickup_item?(yes)
 	yes == "Y" || "yes"
 end
 
-def remove_grocery_item(grocery_list, grocery_item)
-	grocery_list = []
-	grocery_list.delete(grocery_item)
-end
-
-def add_item(grocery_list, grocery_item)
-	grocery_list = []
-	return grocery_item
-	grocery_list >> grocery_item
-end
 
 users_name = get_users_name
 
@@ -92,27 +82,19 @@ users_info[:gender] = users_gender
 
 grocery_list = ["potatoes", "bananas", "chicken", "eggs", "milk", "bacon", "flour"]
 
-first_item = gets_answer_about_groceries(grocery_list.first)
-remove_grocery_item(grocery_list, first_item) if pickup_item?(first_item)
+first_item_answer = gets_answer_about_groceries(grocery_list.first)
+grocery_list.shift if pickup_item?(first_item_answer)
 
-random_item = gets_answer_about_groceries(grocery_list.sample) 
-remove_grocery_item(grocery_list, random_item) if pickup_item?(random_item)
+random_item = grocery_list.sample
+random_item_answer = gets_answer_about_groceries(random_item) 
+grocery_list.delete(random_item) if pickup_item?(random_item_answer)
 
-puts "Oh yeah, don't forget the don't forget the #{add_item(grocery_list, "bread")}!"
+puts "Oh yeah, don't forget the don't forget the bread!"
+grocery_list << "bread"
 
-# Bonus
-# In ~/ruby_scripts, create a file called arrays.rb
-# Go through the entire Ruby doc on arrays and practice each method
-# Ignore any method that takes a block
-# Ex of one to ignore: arr.each { |x| puts x }
-# We’re covering these next lesson
+puts grocery_list
 
-# Bonus
-# In ~/ruby_scripts, create a file called hashes.rb
-# Go through the entire Ruby doc on hashes and practice each method
-# Ignore any method that takes a block
-# Ex of one to ignore: hash.each { |k, v| puts “#{k} : #{v}” }
-# We’re covering these next lesson
+
 
 
 
