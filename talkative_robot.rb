@@ -38,6 +38,26 @@ def great_great_grandparent_message(gender)
 	return "great-great grand#{older_gender_greeting}"
 end
 
+def gets_answer_about_groceries(grocery_list)
+	puts "Hey! did you get the #{grocery_list}? (Y/N)"
+	return gets.chomp
+end
+
+def pickup_item?(yes)
+	yes == "Y" || "yes"
+end
+
+def remove_grocery_item(grocery_list, grocery_item)
+	grocery_list = []
+	grocery_list.delete(grocery_item)
+end
+
+def add_item(grocery_list, grocery_item)
+	grocery_list = []
+	return grocery_item
+	grocery_list >> grocery_item
+end
+
 users_name = get_users_name
 
 users_gender = get_users_gender
@@ -56,7 +76,6 @@ puts "Hey #{users_name.upcase}, where are you going!?"
 puts 'Hey "Dude", what\'s up?'
 
 
-
 # Add on to previous lab with:
 # Create grocery_list array with 5+ items
 # Turn your user questions into a hash
@@ -66,19 +85,20 @@ puts 'Hey "Dude", what\'s up?'
 # Remove from list if yes
 # Add new item to list “Oh yeah, don’t forget the bread!”
 
+users_info = {}
+users_info[:name] = users_name
+users_info[:age] = users_age
+users_info[:gender] = users_gender
 
-users_info = {
-	name: users_name,
-	age: users_age,
-	gender: users_gender,
-}
+grocery_list = ["potatoes", "bananas", "chicken", "eggs", "milk", "bacon", "flour"]
 
+first_item = gets_answer_about_groceries(grocery_list.first)
+remove_grocery_item(grocery_list, first_item) if pickup_item?(first_item)
 
+random_item = gets_answer_about_groceries(grocery_list.sample) 
+remove_grocery_item(grocery_list, random_item) if pickup_item?(random_item)
 
-
-
-
-
+puts "Oh yeah, don't forget the don't forget the #{add_item(grocery_list, "bread")}!"
 
 # Bonus
 # In ~/ruby_scripts, create a file called arrays.rb
