@@ -57,6 +57,45 @@ puts 'Hey "Dude", what\'s up?'
 
 
 
+# Add on to previous lab with:
+# Create grocery_list array with 5+ items
+# Turn your user questions into a hash
+# Hint: Create user variable equal to a blank hash first, then put each key/value into that hash
+# Pick out a random off list
+# Print “Did you already grab the <random_item>?”
+# Remove from list if yes
+# Add new item to list “Oh yeah, don’t forget the bread!”
+
+
+users_info = {
+	name: users_name,
+	age: users_age,
+	gender: users_gender,
+}
+
+
+
+
+
+
+
+
+# Bonus
+# In ~/ruby_scripts, create a file called arrays.rb
+# Go through the entire Ruby doc on arrays and practice each method
+# Ignore any method that takes a block
+# Ex of one to ignore: arr.each { |x| puts x }
+# We’re covering these next lesson
+
+# Bonus
+# In ~/ruby_scripts, create a file called hashes.rb
+# Go through the entire Ruby doc on hashes and practice each method
+# Ignore any method that takes a block
+# Ex of one to ignore: hash.each { |k, v| puts “#{k} : #{v}” }
+# We’re covering these next lesson
+
+
+
 
 
 
