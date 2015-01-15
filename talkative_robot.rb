@@ -61,25 +61,31 @@ def pickup_item?(input)
 	input == "Y" || input == "yes"
 end
 
-user = { name: get_users_name, age: get_users_age, gender: get_users_gender }
+# user = { name: get_users_name, age: get_users_age, gender: get_users_gender }
 
-prints_user_message(user)
-user_turns_75_message(user[:age])
-prints_user_age_message(user)
+# prints_user_message(user)
+# user_turns_75_message(user[:age])
+# prints_user_age_message(user)
 
 grocery_list = ["potatoes", "bananas", "chicken", "eggs", "milk", "bacon", "flour"]
 
-first_item_answer = gets_answer_about_groceries(grocery_list.first)
-grocery_list.shift if pickup_item?(first_item_answer)
+styled_grocery_list = grocery_list.each_with_index do |item, index| 
+	"#{index + 1} -- #{item}\n"
+end
 
-random_item = random_grocery_item(grocery_list)
-did_user_get_item = gets_answer_about_groceries(random_item) 
-grocery_list.delete(random_item) if pickup_item?(did_user_get_item)
+IO.write("grocery_list.txt", styled_grocery_list)
 
-puts "Oh yeah, don't forget the don't forget the bread!"
-grocery_list << "bread"
+# first_item_answer = gets_answer_about_groceries(grocery_list.first)
+# grocery_list.shift if pickup_item?(first_item_answer)
 
-puts grocery_list
+# random_item = random_grocery_item(grocery_list)
+# did_user_get_item = gets_answer_about_groceries(random_item) 
+# grocery_list.delete(random_item) if pickup_item?(did_user_get_item)
+
+# puts "Oh yeah, don't forget the don't forget the bread!"
+# grocery_list << "bread"
+
+# puts grocery_list
 
 
 
