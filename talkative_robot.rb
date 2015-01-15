@@ -43,8 +43,8 @@ def gets_answer_about_groceries(grocery_list)
 	return gets.chomp
 end
 
-def pickup_item?(yes)
-	yes == "Y" || "yes"
+def pickup_item?(input)
+	input == "Y" || input == "yes"
 end
 
 
