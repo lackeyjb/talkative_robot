@@ -1,3 +1,4 @@
+# User information
 def get_users_name
 	puts "What's your name?"
 	gets.chomp
@@ -11,6 +12,11 @@ end
 def get_users_age
 	puts "How old are you?"
 	gets.chomp.to_i
+end
+
+def get_users_favorite_place
+	puts "Where's your favorite place to go?"
+	gets.chomp
 end
 
 def prints_user_message(user)		
@@ -48,6 +54,18 @@ def prints_user_age_message(user)
 	puts "You're probably someone's #{great_great_grandparent_message(user[:gender])}!!" if user[:age] >= 100
 end
 
+def get_search_name
+	print "Search name: "
+	gets.chomp.capitalize
+end
+
+def select_by_name(list_of_users, first_name)
+list_of_users.each do |user|
+		puts "Hi, I'm #{user[:name]} and my all-time favorite place is #{user[:fav_spot]}." if first_name == user[:name]
+	end
+end
+
+# Grocery list
 def gets_answer_about_groceries(grocery_list)
 	puts "Hey! did you get the #{grocery_list}? (Y/N)"
 	gets.chomp
@@ -61,31 +79,48 @@ def pickup_item?(input)
 	input == "Y" || input == "yes"
 end
 
-# user = { name: get_users_name, age: get_users_age, gender: get_users_gender }
-
-# prints_user_message(user)
-# user_turns_75_message(user[:age])
-# prints_user_age_message(user)
-
-grocery_list = ["potatoes", "bananas", "chicken", "eggs", "milk", "bacon", "flour"]
-
-styled_grocery_list = grocery_list.each_with_index do |item, index| 
-	"#{index + 1} -- #{item}\n"
+def grocery_list_styling(list)
+	list.map.with_index { |item, index| "#{index + 1} -- #{item}" }
 end
 
-IO.write("grocery_list.txt", styled_grocery_list)
+#User/Author information commands
+user = { 
+	name: 		get_users_name, 
+	age: 			get_users_age, 
+	gender: 	get_users_gender, 
+	fav_spot: get_users_favorite_place 
+}
+author  = { name: "Bryan", age: 25, gender: "M", fav_spot: "Yellowstone" }
+persons = [user, author]
 
-# first_item_answer = gets_answer_about_groceries(grocery_list.first)
-# grocery_list.shift if pickup_item?(first_item_answer)
+prints_user_message(user)
+user_turns_75_message(user[:age])
+prints_user_age_message(user)
 
-# random_item = random_grocery_item(grocery_list)
-# did_user_get_item = gets_answer_about_groceries(random_item) 
-# grocery_list.delete(random_item) if pickup_item?(did_user_get_item)
+first_name = get_search_name
+select_by_name(persons, first_name)
 
-# puts "Oh yeah, don't forget the don't forget the bread!"
-# grocery_list << "bread"
+#Grocery list commands
+grocery_list = ["potatoes", "bananas", "chicken", "eggs", "milk", "bacon", "flour"]
 
-# puts grocery_list
+first_item_answer = gets_answer_about_groceries(grocery_list.first)
+grocery_list.shift if pickup_item?(first_item_answer)
+
+random_item = random_grocery_item(grocery_list)
+did_user_get_item = gets_answer_about_groceries(random_item) 
+grocery_list.delete(random_item) if pickup_item?(did_user_get_item)
+
+puts "Oh yeah, don't forget the don't forget the bread!"
+grocery_list << "bread"
+
+styled_grocery_list = grocery_list_styling(grocery_list)
+
+IO.write("grocery_list.txt", styled_grocery_list.join("\n"))
+
+new_grocery_list = IO.read("grocery_list.txt").split("\n").map do |item|
+	item.scan(/[a-z]/).join("")
+end
+puts new_grocery_list
 
 
 
