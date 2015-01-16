@@ -60,7 +60,7 @@ def get_search_name
 end
 
 def select_by_name(list_of_users, search_name)
-list_of_users.select { |user| user[:name] == search_name }	
+list_of_users.select { |user| user[:name] == search_name }.first	
 end
 
 # Grocery list
