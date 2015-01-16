@@ -59,10 +59,8 @@ def get_search_name
 	gets.chomp.capitalize
 end
 
-def select_by_name(list_of_users, first_name)
-list_of_users.each do |user|
-		puts "Hi, I'm #{user[:name]} and my all-time favorite place is #{user[:fav_spot]}." if first_name == user[:name]
-	end
+def select_by_name(list_of_users, search_name)
+list_of_users.select { |user| user[:name] == search_name }	
 end
 
 # Grocery list
@@ -84,12 +82,10 @@ def grocery_list_styling(list)
 end
 
 #User/Author information commands
-user = { 
-	name: 		get_users_name, 
-	age: 			get_users_age, 
-	gender: 	get_users_gender, 
-	fav_spot: get_users_favorite_place 
+user = { name: get_users_name,     age: get_users_age, 
+	       gender: get_users_gender, fav_spot: get_users_favorite_place 
 }
+
 author  = { name: "Bryan", age: 25, gender: "M", fav_spot: "Yellowstone" }
 persons = [user, author]
 
@@ -97,8 +93,8 @@ prints_user_message(user)
 user_turns_75_message(user[:age])
 prints_user_age_message(user)
 
-first_name = get_search_name
-select_by_name(persons, first_name)
+search_name = get_search_name
+puts select_by_name(persons, search_name)
 
 #Grocery list commands
 grocery_list = ["potatoes", "bananas", "chicken", "eggs", "milk", "bacon", "flour"]
@@ -117,9 +113,12 @@ styled_grocery_list = grocery_list_styling(grocery_list)
 
 IO.write("grocery_list.txt", styled_grocery_list.join("\n"))
 
-new_grocery_list = IO.read("grocery_list.txt").split("\n").map do |item|
+new_grocery_list = IO.read("grocery_list.txt").split("\n")
+
+new_grocery_list.map! do |item|
 	item.scan(/[a-z]/).join("")
 end
+
 puts new_grocery_list
 
 

@@ -1,6 +1,7 @@
-1 -- bananas
-2 -- eggs
-3 -- milk
-4 -- bacon
-5 -- flour
-6 -- bread
+1 -- potatoes
+2 -- bananas
+3 -- eggs
+4 -- milk
+5 -- bacon
+6 -- flour
+7 -- bread
