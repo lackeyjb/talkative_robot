@@ -121,6 +121,38 @@ end
 
 puts new_grocery_list
 
+# OOP Lab
+
+## Add on to previous lab with:
+
+# Create User class
+  # use class methods to gather user info
+  # initialize with name, age, and other questions that are prompted
+  # create getter and setter methods for each question asked
+# Set current_user = User.new(...) by passing in a hash of args
+# In the script, change user[:name] to its getter method version
+# Create GroceryList class
+  # initialize with file name
+  # pull other methods into GroceryList class
+# Create a Person class
+# Create an Author class
+# Set it so that both User and Author inherit from Person
+# For any shared behavior between User and Author, put it in Person
+# Pass in the User instance into the GroceryList initialize, so there’s a connection
+# Should be able to run:
+  # user = User.new({ name: “Gerry”, age: 28, gender: “M” })
+  # grocery_list = GroceryList.new(“grocery_list.txt”, user)
+  # grocery_list.owner.name # => “Gerry”
+
+
+## Bonus:
+
+# Create a new folder and repo on GitHub
+# Create a unique example that applies OOP
+  # Example: Vehicles, Cars, Trucks
+  # Make up your example though -- think of something that interests you
+# Apply OOP
+
 
 
 
