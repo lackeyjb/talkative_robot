@@ -1,21 +1,11 @@
 class Person
   attr_reader :name, :gender
-<<<<<<< HEAD
-	attr_accessor :age
-	def initialize(args)
-		@name = args[:name] || "Anonymous"
-		@age = args[:age] || nil
-		@gender = args[:gender] || "unknown"
-	end
-=======
   attr_accessor :age
   def initialize(args)
     @name = args[:name] || "Anonymous"
     @age = args[:age] || nil
     @gender = args[:gender] || "unknown"
   end
->>>>>>> classes
-end
 
 class User < Person
   attr_accessor :fav_spot
@@ -81,7 +71,6 @@ class User < Person
 end
 
 class Author < Person
-<<<<<<< HEAD
 	attr_reader :fav_spot
 	def initialize
 		@name = "Bryan"
@@ -93,19 +82,6 @@ class Author < Person
 	def to_s
 		"Hello, this is #{name} the author. I am #{age}, and my favorite place to visit is #{fav_spot}."
 	end
-=======
-  attr_reader :fav_spot
-  def initialize
-    @name = "Bryan"
-    @age = 25
-    @gender = "M"
-    @fav_spot = "Yellowstone" 
-  end
-
-  def to_s
-    "Hello, this is #{name} the author. I am #{age}, and my favorite place to visit is #{fav_spot}."
-  end
->>>>>>> classes
 end
 
 class GroceryList
