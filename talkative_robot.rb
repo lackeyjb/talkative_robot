@@ -2,8 +2,8 @@ class Person
   attr_reader :name, :gender
   attr_accessor :age
   def initialize(args)
-    @name   = args[:name] || "Anonymous"
-    @age    = args[:age] || nil
+    @name   = args[:name]   || "Anonymous"
+    @age    = args[:age]    || nil
     @gender = args[:gender] || "unknown"
   end
 
@@ -89,7 +89,7 @@ class GroceryList
   def initialize(args)
     @grocery_list = args[:grocery_list] 
     @user         = args[:user] 
-    @answer       = args[:answer] || answer = nil
+    @answer       = args[:answer]      || answer = nil
     @random_item  = args[:random_item] || random_item
   end
 
