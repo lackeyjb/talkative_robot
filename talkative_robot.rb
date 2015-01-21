@@ -89,7 +89,7 @@ class GroceryList
   attr_accessor :grocery_list, :owner, :random_item, :answer
   def initialize(args)
     @grocery_list = args[:grocery_list] 
-    @owner         = args[:owner] 
+    @owner        = args[:owner] 
     @answer       = args[:answer]      || answer = nil
     @random_item  = args[:random_item] || random_item
   end
