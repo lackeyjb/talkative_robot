@@ -73,7 +73,8 @@ end
 
 class Author < Person
   attr_reader :fav_spot
-  def initialize
+  def initialize(args={})
+    super(args)
     @name     = "Bryan"
     @age      = 25
     @gender   = "M"
