@@ -1,3 +1,5 @@
+require './user'
+
 class GroceryList
   attr_accessor :grocery_list, :owner, :random_item, :answer
   def initialize(args)

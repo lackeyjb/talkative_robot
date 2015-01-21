@@ -1,3 +1,6 @@
+require './person'
+require './author'
+
 class Author < Person
   attr_reader :fav_spot
   def initialize(args={})

@@ -1,3 +1,5 @@
+require './person'
+
 class User < Person
   attr_accessor :fav_spot
   def initialize(args)
