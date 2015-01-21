@@ -1,4 +1,4 @@
-require './user'
+require_relative './user'
 
 class GroceryList
   attr_accessor :grocery_list, :owner, :random_item, :answer

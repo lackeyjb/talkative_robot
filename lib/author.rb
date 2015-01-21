@@ -1,5 +1,5 @@
-require './person'
-require './author'
+require_relative './person'
+require_relative './author'
 
 class Author < Person
   attr_reader :fav_spot

@@ -1,4 +1,4 @@
-require './person'
+require_relative './person'
 
 class User < Person
   attr_accessor :fav_spot

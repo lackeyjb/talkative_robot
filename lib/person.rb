@@ -7,3 +7,4 @@ class Person
     @gender = args[:gender] || "unknown"
   end
 end
+
