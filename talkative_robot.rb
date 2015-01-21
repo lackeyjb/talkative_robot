@@ -73,15 +73,21 @@ end
 class Author < Person
   attr_reader :fav_spot
   def initialize
+<<<<<<< HEAD
     @name     = "Bryan"
     @age      = 25
     @gender   = "M"
+=======
+	  @name = "Bryan"
+    @age = 25
+	  @gender = "M"
+>>>>>>> parent of 0a83b44... adjust spacing again
     @fav_spot = "Yellowstone"	
   end
 
   def to_s
     "Hello, this is #{name} the author. I am #{age}, and my favorite place to visit is #{fav_spot}."
-  end
+	end
 end
 
 class GroceryList
