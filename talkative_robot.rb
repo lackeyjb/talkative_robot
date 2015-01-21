@@ -86,10 +86,10 @@ class Author < Person
 end
 
 class GroceryList
-  attr_accessor :grocery_list, :user, :random_item, :answer
+  attr_accessor :grocery_list, :owner, :random_item, :answer
   def initialize(args)
     @grocery_list = args[:grocery_list] 
-    @user         = args[:user] 
+    @owner         = args[:owner] 
     @answer       = args[:answer]      || answer = nil
     @random_item  = args[:random_item] || random_item
   end
@@ -115,10 +115,6 @@ class GroceryList
     @grocery_list.delete(@random_item) if pickup_item?
   end
 
-  def owner
-    @user
-  end
-
   def to_s
     "you need to pick up the following from the store:\n#{@grocery_list}."
   end
@@ -138,7 +134,7 @@ bryan_the_author = Author.new
 puts bryan_the_author.to_s
 
 list = GroceryList.grocery_list('grocery_list.txt')
-grocery_list = GroceryList.new(grocery_list: list, user: current_user)
+grocery_list = GroceryList.new(grocery_list: list, owner: current_user)
 puts "#{grocery_list.owner.name}, #{grocery_list}"
 grocery_list.gets_answer_about_groceries
 grocery_list.delete_item
