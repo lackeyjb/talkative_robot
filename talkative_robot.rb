@@ -142,3 +142,4 @@ puts "#{grocery_list.owner.name}, #{grocery_list}"
 grocery_list.gets_answer_about_groceries
 grocery_list.delete_item
 puts "#{grocery_list.owner.name}, #{grocery_list}"
+
