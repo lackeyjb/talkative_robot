@@ -91,11 +91,14 @@ class GroceryList
 		@grocery_list = IO.read(grocery_list).split("\n").map { |item| item.scan(/[a-z]/).join("") }
 		@user = user 
 		@answer = answer
-		@random_item = random_item
+		@random_item = args[:random_item] || random_item
+
+		def random_item
+			@grocery_list.sample
+		end
 	end
 
 	def gets_answer_about_groceries
-		@random_item = grocery_list.sample
 		puts "Hey! did you get the #{@random_item}? (Y/N)"
 		@answer = gets.chomp
 	end
