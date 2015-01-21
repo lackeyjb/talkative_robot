@@ -2,8 +2,8 @@ class Person
   attr_reader :name, :gender
   attr_accessor :age
   def initialize(args)
-    @name = args[:name] || "Anonymous"
-    @age = args[:age] || nil
+    @name   = args[:name] || "Anonymous"
+    @age    = args[:age] || nil
     @gender = args[:gender] || "unknown"
   end
 
@@ -73,9 +73,9 @@ end
 class Author < Person
   attr_reader :fav_spot
   def initialize
-    @name = "Bryan"
-    @age = 25
-    @gender = "M"
+    @name     = "Bryan"
+    @age      = 25
+    @gender   = "M"
     @fav_spot = "Yellowstone"	
   end
 
@@ -88,9 +88,9 @@ class GroceryList
   attr_accessor :grocery_list, :user, :random_item, :answer
   def initialize(args)
     @grocery_list = args[:grocery_list] 
-    @user = args[:user] 
-    @answer = args[:answer] || answer = nil
-    @random_item = args[:random_item] || random_item
+    @user         = args[:user] 
+    @answer       = args[:answer] || answer = nil
+    @random_item  = args[:random_item] || random_item
   end
 
   def self.grocery_list(list)
