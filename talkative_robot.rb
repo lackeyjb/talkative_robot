@@ -1,5 +1,5 @@
 class Person
-	attr_reader :name, :gender
+  attr_reader :name, :gender
 	attr_accessor :age
 	def initialize(args)
 		@name = args[:name] || "Anonymous"
@@ -75,7 +75,7 @@ class Author < Person
 	attr_reader :fav_spot
 	def initialize
 		@name = "Bryan"
-		@age = 25
+    @age = 25
 		@gender = "M"
 		@fav_spot = "Yellowstone"	
 	end
