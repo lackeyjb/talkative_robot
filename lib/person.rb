@@ -1,9 +1,9 @@
 class Person
+  attr_reader :name, :gender
+  attr_accessor :age
   def initialize(args)
-    @gender = args[:gender]
-  end
-
-  def male?
-    @gender == "M"
+    @name   = args[:name]   || "Anonymous"
+    @age    = args[:age]    || nil
+    @gender = args[:gender] || "unknown"
   end
 end
