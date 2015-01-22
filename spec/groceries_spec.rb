@@ -10,7 +10,7 @@ describe GroceryList do
 #     end
 #   end
 
-  describe ".pickup_item?" do
+  describe "#pickup_item?" do
     context "item was picked up" do
       let(:picked_up) { GroceryList.new(answer: "Y", random_item: "eggs") }
 
