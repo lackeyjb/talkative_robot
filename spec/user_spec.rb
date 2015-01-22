@@ -207,9 +207,8 @@ describe User do
       let(:user_middle_age) { User.new(age: 20) }
 
       it "will return nil" do
-        expect( user_middle_age.prints_user_age_message).to eq(nil)
+        expect( user_middle_age.prints_user_age_message).to be_nil
       end
     end
   end
-
 end

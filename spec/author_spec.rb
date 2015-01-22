@@ -9,5 +9,4 @@ describe Author do
       expect( author.to_s ).to eq("Hello, this is Bryan the author. I am 25, and my favorite place to visit is Yellowstone.")
     end
   end
-
 end

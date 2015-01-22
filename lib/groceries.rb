@@ -4,7 +4,7 @@ class GroceryList
   attr_accessor :grocery_list, :owner, :random_item, :answer
   def initialize(args)
     @grocery_list = args[:grocery_list] 
-    @owner        = args[:owner] 
+    @owner        = args[:owner]       
     @answer       = args[:answer]      || answer = nil
     @random_item  = args[:random_item] || random_item
   end
@@ -18,12 +18,12 @@ class GroceryList
   end
 
   def gets_answer_about_groceries
-    puts "Hey! did you get the #{random_item}? (Y/N)"
-    @answer = gets.chomp
+    "Hey! did you get the #{random_item}? (Y/N)"
+    @answer = gets.chomp.capitalize
   end
 
   def pickup_item?
-    @answer == "Y" || @answer == "yes"
+    @answer == "Y" || @answer == "Yes"
   end
 
   def delete_item

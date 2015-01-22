@@ -29,6 +29,6 @@ puts bryan_the_author.to_s
 list = GroceryList.grocery_list('grocery_list.txt')
 grocery_list = GroceryList.new(grocery_list: list, owner: current_user)
 puts "#{grocery_list.owner.name}, #{grocery_list}"
-grocery_list.gets_answer_about_groceries
+puts grocery_list.gets_answer_about_groceries
 grocery_list.delete_item
 puts "#{grocery_list.owner.name}, #{grocery_list}"
