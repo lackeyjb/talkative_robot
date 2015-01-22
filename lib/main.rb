@@ -19,9 +19,9 @@ gender       = User.get_users_gender
 fav_spot     = User.get_users_favorite_place
 current_user = User.new(name: name, age: age, gender: gender, fav_spot: fav_spot)
 
-current_user.prints_user_message
-current_user.user_turns_75_message
-current_user.prints_user_age_message
+puts current_user.prints_user_message
+puts current_user.user_turns_75_message
+puts current_user.prints_user_age_message
 
 bryan_the_author = Author.new
 puts bryan_the_author.to_s

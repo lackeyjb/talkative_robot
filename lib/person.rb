@@ -3,7 +3,7 @@ class Person
   attr_accessor :age
   def initialize(args)
     @name   = args[:name]   || "Anonymous"
-    @age    = args[:age]    || nil
+    @age    = args[:age]    
     @gender = args[:gender] || "unknown"
   end
 end

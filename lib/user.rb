@@ -28,18 +28,18 @@ class User < Person
   end
 
   def prints_user_message
-    puts "Hi #{name}, who is #{age} year(s) old!"
-    puts "Do you mind if I call you #{name.chars.first}?"
+    "Hi #{name}, who is #{age} year(s) old!"
+    "Do you mind if I call you #{name.chars.first}?"
   end
 
   def user_turns_75_message
     case age
     when 0..74
-      puts "You will be 75 years old in #{75 - age} year(s)."
+      "You will be 75 years old in #{75 - age} year(s)."
     when 75
-      puts "You are #{age}!"
+      "You are #{age}!"
     else
-      puts "You turned 75 years old #{age - 75} years ago."
+      "You turned 75 years old #{age - 75} years ago."
     end
   end
 
@@ -58,7 +58,10 @@ class User < Person
   end
 
   def prints_user_age_message
-    puts "You're a #{young_person_message}." if age < 12
-    puts "You're probably someone's #{great_great_grandparent_message}!!" if age >= 100
+    if age < 12
+      "You're a #{young_person_message}."
+    elsif age > 95
+      "You're probably someone's #{great_great_grandparent_message}!!"
+    end
   end
 end
