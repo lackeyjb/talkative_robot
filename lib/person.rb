@@ -6,5 +6,9 @@ class Person
     @age    = args[:age]    
     @gender = args[:gender] || "unknown"
   end
+
+  def male?
+    gender == "M" || gender == "Male"
+  end
 end
 

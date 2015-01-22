@@ -43,10 +43,6 @@ class User < Person
     end
   end
 
-  def male?
-    gender == "M" || gender == "Male"
-  end
-
   def young_person_message
     young_person_greeting = male? ? "boy" : "girl"
     "young #{young_person_greeting}"

@@ -25,9 +25,9 @@ puts current_user.prints_user_age_message
 bryan_the_author = Author.new
 puts bryan_the_author.to_s
 
-list = GroceryList.grocery_list('grocery_list.txt')
+list = GroceryList.import_list('grocery_list.txt')
 grocery_list = GroceryList.new(grocery_list: list, owner: current_user)
 puts "#{grocery_list.owner.name}, #{grocery_list}"
-puts grocery_list.gets_answer_about_groceries
+grocery_list.gets_answer_about_groceries
 grocery_list.delete_item
 puts "#{grocery_list.owner.name}, #{grocery_list}"

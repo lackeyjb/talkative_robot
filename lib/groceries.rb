@@ -10,17 +10,17 @@ class GroceryList
     @random_item  = args[:random_item] || random_item
   end
 
-  def self.grocery_list(list)
+  def self.import_list(list)
     # scans for the items in a .txt file that has non-letter characters
     IO.read(list).split("\n").map { |item| item.scan(/[a-z]/).join("") }
   end
 
   def random_item
-    @random_item = grocery_list.sample
+    @random_item = @grocery_list.sample
   end
 
   def gets_answer_about_groceries
-    "Hey! did you get the #{random_item}? (Y/N)"
+    puts "Hey! did you get the #{random_item}? (Y/N)"
     @answer = gets.chomp.capitalize
   end
 
