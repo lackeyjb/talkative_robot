@@ -8,7 +8,6 @@
 # Note: Ignore any method that includes "get"
 # Also: Explain in the Pull Request how the process we did differs from the typical 
 
-require './person'
 require './user'
 require './author'
 require './groceries'

@@ -1,6 +1,7 @@
 require_relative './user'
 
 class GroceryList
+
   attr_accessor :grocery_list, :owner, :random_item, :answer
   def initialize(args)
     @grocery_list = args[:grocery_list] 
@@ -10,11 +11,12 @@ class GroceryList
   end
 
   def self.grocery_list(list)
+    # scans for the items in a .txt file that has non-letter characters
     IO.read(list).split("\n").map { |item| item.scan(/[a-z]/).join("") }
   end
 
   def random_item
-    @random_item = @grocery_list.sample
+    @random_item = grocery_list.sample
   end
 
   def gets_answer_about_groceries
