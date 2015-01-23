@@ -3,13 +3,6 @@ require_relative '../lib/groceries'
 
 describe GroceryList do
   let(:grocery_list) { GroceryList.new(items: ["eggs", "bacon", "butter"]) }
-#   describe "#random_item.stub" do  #how do I make this test work?
-#     it "will return a random item from the grocery array" do
-#       expect( grocery_list.random_item.stub(:sample).and_return(["bananas", "chicken", "eggs"])
-#       grocery_list = GroceryList.new( {grocery_list: ["bananas", "chicken", "eggs"]} )
-#       grocery_list.sample.to eq(grocery_list)
-#     end
-#   end
 
   describe "#random_item" do 
     
