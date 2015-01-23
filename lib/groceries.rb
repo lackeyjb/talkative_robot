@@ -2,12 +2,12 @@ require_relative './user'
 
 class GroceryList
 
-  attr_accessor :grocery_list, :owner, :random_item, :answer
+  attr_accessor :items, :owner, :random_item, :answer
   def initialize(args)
-    @grocery_list = args[:grocery_list] 
+    @items        = args[:items] 
     @owner        = args[:owner]       
     @answer       = args[:answer]      || answer = nil
-    @random_item  = args[:random_item] || random_item
+    @random_item  = args[:random_item] || shuffle_items
   end
 
   def self.import_list(list)
@@ -15,8 +15,8 @@ class GroceryList
     IO.read(list).split("\n").map { |item| item.scan(/[a-z]/).join("") }
   end
 
-  def random_item
-    @random_item = @grocery_list.sample
+  def shuffle_items
+    @random_item = items.sample
   end
 
   def gets_answer_about_groceries
@@ -25,14 +25,14 @@ class GroceryList
   end
 
   def pickup_item?
-    @answer == "Y" || @answer == "Yes"
+    answer == "Y" || answer == "Yes"
   end
 
   def delete_item
-    @grocery_list.delete(@random_item) if pickup_item?
+    @items.delete(random_item) if pickup_item?
   end
 
   def to_s
-    "you need to pick up the following from the store:\n#{@grocery_list}."
+    "you need to pick up the following from the store:\n#{items}."
   end
 end
